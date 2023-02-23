@@ -1,4 +1,4 @@
-// import "./Login.css"
+import "./Login.css"
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import GoogleButton from './GoogleButton';
@@ -18,11 +18,14 @@ function Login() {
   }
 
   const handleLoginBtnClick = (e) =>{
-    alert('로그인 버튼 클릭');
-  }
-
-  const handleOAuthBtnClick = (e) =>{
-    alert('구글 로그인 버튼 클릭');
+    axios.post('/api/login', 
+    {
+      id : inputId,
+      password: inputPw,
+    }
+    )
+    .then(response => alert(response))
+    .catch(error => alert('로그인 실패.',error))
   }
 
   // 페이지 렌더링 후 가장 처음 호출되는 함수
@@ -32,14 +35,6 @@ function Login() {
   // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
   [])
 
-  //  const [hello, setHello] = useState('')
-
-  //   useEffect(() => {
-  //       axios.get('/api/hello')
-  //       .then(response => setHello(response.data))
-  //       .catch(error => console.log('아직 API가 없어...'))
-  //   }, []);
-
   return (
     <div id="login" className="login-container">
       <div className="login-item">
@@ -47,18 +42,18 @@ function Login() {
           Page Login.
         </h1>
       </div>
-      <div>
+      <div className="login-item">
         <label htmlFor="input_id">아 이 디 : </label>
         <input type="text" name="input_id" value={inputId} onChange={handleInputId}/>
       </div>
-      <div>
+      <div className="login-item">
         <label htmlFor="input_pw">비밀번호 : </label>
         <input type="text" name="input_pw" value={inputPw} onChange={handleInputPw}/>
       </div>
-      <div>
+      <div className="login-item">
         <button type="button" onClick={handleLoginBtnClick}>로그인</button>
       </div>
-      <div>
+      <div className="login-item">
         <GoogleButton/>
       </div>
     </div>
