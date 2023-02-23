@@ -2,10 +2,11 @@
 import GoogleLogin from 'react-google-login';
 import {useEffect, useCallback} from 'react';
 import { gapi } from 'gapi-script';
+import axios from 'axios';
 
 const clientId = '54088883439-vjqo4c1u6727cdtj175sf8kbbsvuup7l.apps.googleusercontent.com';
 
-const GoogleButton = ({ onSocial }) => {
+const GoogleButton = () => {
 
   useEffect(()=>{
     function start(){
@@ -20,12 +21,17 @@ const GoogleButton = ({ onSocial }) => {
   },[]);
 
   const onSuccess = (res) =>{
-    console.log(res);
+    console.log(res.tokenObj);
+    axios.post('/oauth/google', res.tokenObj)
+    .then(response => alert(response))
+    .catch(error => alert('구글 로그인 실패.',error))
   }
 
   const onFailure = (res) =>{
-    console.log(res);
+    alert(res);
   }
+
+  
 
   return (
     <div>
