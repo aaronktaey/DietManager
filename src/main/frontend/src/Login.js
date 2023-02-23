@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 import GoogleButton from './GoogleButton';
 
 function Login() {
+  const [toggle, setToggle] = useState(true);
   const [inputId, setInputId] = useState('');
   const [inputPw, setInputPw] = useState('');
 
@@ -17,15 +18,30 @@ function Login() {
     console.log(e.target.value)
   }
 
+  const handleToggle = (e) =>{
+    setToggle(toggle ? false : true);
+  }
+
   const handleLoginBtnClick = (e) =>{
-    axios.post('/api/login', 
-    {
-      id : inputId,
-      password: inputPw,
+    if(toggle){
+      axios.post('/api/login', 
+      {
+        id : inputId,
+        password: inputPw,
+      }
+      )
+      .then(response => alert(response))
+      .catch(error => alert('로그인 실패.',error))
+    }else{
+      axios.post('/api/signup', 
+      {
+        id : inputId,
+        password: inputPw,
+      }
+      )
+      .then(response => alert(response))
+      .catch(error => alert('회원가입 실패.',error))
     }
-    )
-    .then(response => alert(response))
-    .catch(error => alert('로그인 실패.',error))
   }
 
   // 페이지 렌더링 후 가장 처음 호출되는 함수
@@ -39,8 +55,11 @@ function Login() {
     <div id="login" className="login-container">
       <div className="login-item">
         <h1>
-          Page Login.
+        {toggle ? '로그인' : '회원가입'}
         </h1>
+      </div>
+      <div className="login-item">
+        <button type="button" onClick={handleToggle}>{toggle ? '회원가입 하기' : '로그인 하기'}</button>
       </div>
       <div className="login-item">
         <label htmlFor="input_id">아 이 디 : </label>
@@ -51,11 +70,13 @@ function Login() {
         <input type="text" name="input_pw" value={inputPw} onChange={handleInputPw}/>
       </div>
       <div className="login-item">
-        <button type="button" onClick={handleLoginBtnClick}>로그인</button>
+        <button type="button" onClick={handleLoginBtnClick}>{toggle ? '로그인' : '회원가입'}</button>
       </div>
       <div className="login-item">
-        <GoogleButton/>
+      {toggle ? <GoogleButton/> : false}
       </div>
+
+      
     </div>
   );
 }

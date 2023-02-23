@@ -21,14 +21,14 @@ const GoogleButton = () => {
   },[]);
 
   const onSuccess = (res) =>{
-    alert(res.tokenObj.access_token);
+    console.log(res);
     // axios.post('api/login/google', res.tokenObj)
     // .then(response => alert(response))
     // .catch(error => alert('구글 로그인 실패.',error))
   }
 
   const onFailure = (res) =>{
-    alert(res);
+    alert('로그인 실패...',res.error);
   }
 
   

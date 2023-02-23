@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import NotFound from './NotFound';
 import Home from './Home';
 import Login from './Login';
+import Nav from './Nav';
 
 function App() {
   //  const [hello, setHello] = useState('')
@@ -18,6 +19,7 @@ function App() {
     return (
       <div className="App">
       <BrowserRouter>
+        <Nav/>
         <Routes>
           <Route path="/" element={<Login/>}></Route>
           <Route path="/home" element={<Home/>}></Route>
