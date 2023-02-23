@@ -1,5 +1,7 @@
-import "./Login.css"
+// import "./Login.css"
+import axios from 'axios';
 import {useEffect, useState} from 'react';
+import GoogleButton from './GoogleButton';
 
 function Login() {
   const [inputId, setInputId] = useState('');
@@ -7,10 +9,12 @@ function Login() {
 
   const handleInputId = (e) =>{
     setInputId(e.target.value);
+    console.log(e.target.value)
   }
 
   const handleInputPw = (e) =>{
     setInputPw(e.target.value);
+    console.log(e.target.value)
   }
 
   const handleLoginBtnClick = (e) =>{
@@ -20,6 +24,13 @@ function Login() {
   const handleOAuthBtnClick = (e) =>{
     alert('구글 로그인 버튼 클릭');
   }
+
+  // 페이지 렌더링 후 가장 처음 호출되는 함수
+  useEffect(() => {
+    console.log('컴포넌트 렌더링 끝');
+  },
+  // 페이지 호출 후 처음 한번만 호출될 수 있도록 [] 추가
+  [])
 
   //  const [hello, setHello] = useState('')
 
@@ -48,7 +59,7 @@ function Login() {
         <button type="button" onClick={handleLoginBtnClick}>로그인</button>
       </div>
       <div>
-        <button type="button" onClick={handleOAuthBtnClick}>구글 로그인</button>
+        <GoogleButton/>
       </div>
     </div>
   );
