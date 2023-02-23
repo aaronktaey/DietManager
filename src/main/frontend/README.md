@@ -17,6 +17,12 @@ https://han-py.tistory.com/441 리액트 환경설정
 https://velog.io/@sunhwa508/react-native-flex-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-Layout-with-Flexbox css 플렉스  
 
 ### API ###
- api/login/google >> 구글 로그인  
 
- api/login >> 일반 로그인  
+/signup >> 회원가입
+data : id, password
+ 
+/login >> 일반 로그인  (아직 입력값 제한 없음)
+data : id, password
+
+/login/google >> 구글로그인
+ data : 구글에서 돌려받은 JSON response 그대로 보냄
