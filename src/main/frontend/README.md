@@ -1,22 +1,22 @@
 ### 프론트 기동 ###
-소스받은 다음에 
-노드 설치
-npm 설치
+소스받은 다음에  
+노드 설치  
+npm 설치  
 
-frontend 폴더에서
-npm install
-npm run start
-하면 3000포트에 올라갈 것임
+frontend 폴더에서  
+npm install  
+npm run start  
+하면 3000포트에 올라갈 것임  
 
 ### 화면 URI ###
-/* 404화면
-/login 로그인
-/home 홈화면
+/* 404화면  
+/login 로그인  
+/home 홈화면  
 
 
 ### 참고자료 ###
-https://velog.io/@u-nij/Spring-Boot-React.js-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-%EC%84%B8%ED%8C%85 스프링 - 리액트 연동
-https://velog.io/@nuri00/Google-OAuth-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B5%AC%ED%98%84 구글로그인
-https://goddaehee.tistory.com/308 리액트 useState, useEffect
-https://han-py.tistory.com/441 리액트 환경설정
-https://velog.io/@sunhwa508/react-native-flex-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-Layout-with-Flexbox css 플렉스
+https://velog.io/@u-nij/Spring-Boot-React.js-%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-%EC%84%B8%ED%8C%85 스프링 - 리액트 연동  
+https://velog.io/@nuri00/Google-OAuth-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B5%AC%ED%98%84 구글로그인  
+https://goddaehee.tistory.com/308 리액트 useState, useEffect  
+https://han-py.tistory.com/441 리액트 환경설정  
+https://velog.io/@sunhwa508/react-native-flex-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-Layout-with-Flexbox css 플렉스  
