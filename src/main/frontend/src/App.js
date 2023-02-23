@@ -4,6 +4,7 @@ import axios from 'axios';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import NotFound from './NotFound';
 import Home from './Home';
+import Login from './Login';
 
 function App() {
   //  const [hello, setHello] = useState('')
@@ -19,6 +20,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/home" element={<Home/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
           <Route path="*" element={<NotFound/>}></Route>
         </Routes>
       </BrowserRouter>
