@@ -1,8 +1,8 @@
 spring:
   datasource:
     username: admin
-    password: win!3456
-    url: jdbc:mysql://diet-manager.coodpx2moclq.us-east-2.rds.amazonaws.com:3306/diet_manager
+    password: 1q2w3e4r
+    url: jdbc:mysql://db-instance.coodpx2moclq.us-east-2.rds.amazonaws.com:3306/diet_manager
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -10,4 +10,4 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
