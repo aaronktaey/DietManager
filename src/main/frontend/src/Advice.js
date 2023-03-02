@@ -1,6 +1,6 @@
 import "./Advice.css"
 
-function Advice() {
+function Advice() {//test
     return (
         <div id="advice" className="advice-container">
             <div className="advice-item">

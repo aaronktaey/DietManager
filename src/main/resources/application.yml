@@ -2,7 +2,7 @@ spring:
   datasource:
     username: admin
     password: win!3456
-    url: jdbc:mysql://dietmanager.coodpx2moclq.us-east-2.rds.amazonaws.com:3306/diet_manager
+    url: jdbc:mysql://diet-manager.coodpx2moclq.us-east-2.rds.amazonaws.com:3306/diet_manager
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
