@@ -22,9 +22,9 @@ const GoogleButton = () => {
 
     const onSuccess = (res) =>{
         console.log(res);
-        // axios.post('api/login/google', res.tokenObj)
-        // .then(response => alert(response))
-        // .catch(error => alert('구글 로그인 실패.',error))
+        axios.post('api/login/google', res)
+        .then(response => alert(response))
+        .catch(error => alert('구글 로그인 실패.',error))
     }
 
     const onFailure = (res) =>{
