@@ -67,7 +67,7 @@ function Login() {
             </div>
             <div className="login-item">
                 <label htmlFor="password">비밀번호 : </label>
-                <input type="text" name="password" value={password} onChange={handlepassword}/>
+                <input type="password" name="password" value={password} onChange={handlepassword}/>
             </div>
             <div className="login-item">
                 <button type="button" onClick={handleLoginBtnClick}>{toggle ? '로그인' : '회원가입'}</button>
