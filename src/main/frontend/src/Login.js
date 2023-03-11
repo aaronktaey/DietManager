@@ -5,16 +5,16 @@ import GoogleButton from './GoogleButton';
 
 function Login() {
     const [toggle, setToggle] = useState(true);
-    const [inputId, setInputId] = useState('');
-    const [inputPw, setInputPw] = useState('');
+    const [loginId, setloginId] = useState('');
+    const [password, setpassword] = useState('');
 
-    const handleInputId = (e) =>{
-        setInputId(e.target.value);
+    const handleloginId = (e) =>{
+        setloginId(e.target.value);
         console.log(e.target.value)
     }
 
-    const handleInputPw = (e) =>{
-        setInputPw(e.target.value);
+    const handlepassword = (e) =>{
+        setpassword(e.target.value);
         console.log(e.target.value)
     }
 
@@ -26,8 +26,8 @@ function Login() {
         if(toggle){
             axios.post('/api/login',
                 {
-                    id : inputId,
-                    password: inputPw,
+                    id : loginId,
+                    password: password,
                 }
             )
                 .then(response => alert(response))
@@ -35,8 +35,8 @@ function Login() {
         }else{
             axios.post('/api/signup',
                 {
-                    id : inputId,
-                    password: inputPw,
+                    id : loginId,
+                    password: password,
                 }
             )
                 .then(response => alert(response))
@@ -62,12 +62,12 @@ function Login() {
                 <button type="button" onClick={handleToggle}>{toggle ? '회원가입 하기' : '로그인 하기'}</button>
             </div>
             <div className="login-item">
-                <label htmlFor="input_id">아 이 디 : </label>
-                <input type="text" name="input_id" value={inputId} onChange={handleInputId}/>
+                <label htmlFor="loginId">아 이 디 : </label>
+                <input type="text" name="loginId" value={loginId} onChange={handleloginId}/>
             </div>
             <div className="login-item">
-                <label htmlFor="input_pw">비밀번호 : </label>
-                <input type="text" name="input_pw" value={inputPw} onChange={handleInputPw}/>
+                <label htmlFor="password">비밀번호 : </label>
+                <input type="text" name="password" value={password} onChange={handlepassword}/>
             </div>
             <div className="login-item">
                 <button type="button" onClick={handleLoginBtnClick}>{toggle ? '로그인' : '회원가입'}</button>
