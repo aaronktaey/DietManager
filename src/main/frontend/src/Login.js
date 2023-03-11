@@ -26,7 +26,7 @@ function Login() {
         if(toggle){
             axios.post('/api/login',
                 {
-                    id : loginId,
+                    loginId : loginId,
                     password: password,
                 }
             )
@@ -35,7 +35,7 @@ function Login() {
         }else{
             axios.post('/api/signup',
                 {
-                    id : loginId,
+                    loginId : loginId,
                     password: password,
                 }
             )
