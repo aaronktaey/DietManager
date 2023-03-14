@@ -18,6 +18,7 @@ public class UserService {
         userRepository.save(User.builder()
                 .loginId(userDto.getLoginId())
                 .password(passwordEncoder.encode(userDto.getPassword())) // 패스워드 암호화 적용
+                .role(new String[]{"ROLE_USER"})
                 .build());
 
         return "home";
