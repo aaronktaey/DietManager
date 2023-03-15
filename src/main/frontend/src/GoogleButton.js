@@ -7,6 +7,7 @@ import axios from 'axios';
 const clientId = '54088883439-vjqo4c1u6727cdtj175sf8kbbsvuup7l.apps.googleusercontent.com';
 
 const GoogleButton = () => {
+    console.log('1111');
 
     useEffect(()=>{
         function start(){
