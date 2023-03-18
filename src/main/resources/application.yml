@@ -1,8 +1,8 @@
 spring:
   datasource:
     username: admin
-    password: 1q2w3e4r
-    url: jdbc:mysql://db-instance.coodpx2moclq.us-east-2.rds.amazonaws.com:3306/diet_manager
+    password: win!3456
+    url: jdbc:mysql://db-instance.c6dquk4nltu0.ap-northeast-2.rds.amazonaws.com:3306/diet_manager
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
