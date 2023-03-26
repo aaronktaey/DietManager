@@ -1,5 +1,6 @@
 import "./Home.css";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [ingredient, setIngredient] = useState("");
@@ -63,7 +64,7 @@ function Home() {
         <select id="unit" value={unit} onChange={handleUnitSelect}>
           <option value="개">개</option>
           <option value="조각">조각</option>
-          <option value="그램">그램</option> 
+          <option value="그램">그램</option>
         </select>
       </div>
     </div>

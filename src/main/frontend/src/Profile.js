@@ -63,7 +63,7 @@ const Profile = () => {
           <div className="profile-item">
             <label htmlFor="weight-input">Weight: </label>
             <input
-              type="text"
+              type="number"
               id="weight-input"
               value={weight}
               onChange={handleWeightChange}
@@ -73,13 +73,16 @@ const Profile = () => {
           <div className="profile-item">
             <label htmlFor="height-input">Height: </label>
             <input
-              type="text"
+              type="number"
               id="height-input"
               value={height}
               onChange={handleHeightChange}
             />
           </div>
           <br />
+          <div className="profile-item">
+            <img width={400} src={photoUrl} alt="Profile photo" />
+          </div>
           <div className="profile-item">
             <label htmlFor="photo-url-input">Photo URL: </label>
             <input
