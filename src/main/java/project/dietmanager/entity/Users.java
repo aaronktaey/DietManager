@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Getter
 @ToString
-public class User implements UserDetails {
+public class Users implements UserDetails {
     @Id
     @GeneratedValue
     private Long id;
@@ -31,7 +31,7 @@ public class User implements UserDetails {
     private List<String> roles = new ArrayList<>();
 
     @Builder
-    public User(String loginId, String password, String ... role) {
+    public Users(String loginId, String password, String ... role) {
         this.loginId = loginId;
         this.password = password;
         for (String s : role) {
