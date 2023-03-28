@@ -2,6 +2,11 @@ import { useState } from "react";
 import "./Profile.css";
 
 const Profile = () => {
+  fetch('/data/food.csv')
+  .then(response => response.text())
+  .then(data => {
+    console.log(data);
+  });
   const data = {
     // db에서 조회된 데이터
     Name: "민지",
@@ -81,7 +86,7 @@ const Profile = () => {
           </div>
           <br />
           <div className="profile-item">
-            <img width={400} src={photoUrl} alt="Profile photo" />
+            <img width={400} src={photoUrl} alt="Profile" />
           </div>
           <div className="profile-item">
             <label htmlFor="photo-url-input">Photo URL: </label>
@@ -115,7 +120,7 @@ const Profile = () => {
             <p>Height: {height}</p>
           </div>
           <div className="profile-item">
-            <img width={400} src={photoUrl} alt="Profile photo" />
+            <img width={400} src={photoUrl} alt="Profile" />
           </div>
           <div className="profile-item">
             <p>
