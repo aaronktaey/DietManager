@@ -1,11 +1,10 @@
-// import "./Login.css"
 import GoogleLogin from "react-google-login";
 import { useEffect, useCallback } from "react";
 import { gapi } from "gapi-script";
 import axios from "axios";
 
 const clientId =
-  "54088883439-vjqo4c1u6727cdtj175sf8kbbsvuup7l.apps.googleusercontent.com";
+    "54088883439-vjqo4c1u6727cdtj175sf8kbbsvuup7l.apps.googleusercontent.com";
 
 const GoogleButton = () => {
   useEffect(() => {
@@ -22,9 +21,9 @@ const GoogleButton = () => {
   const onSuccess = (res) => {
     console.log(res);
     axios
-      .post("http://localhost:8080/api/login/google")
-      .then((response) => alert(response))
-      .catch((error) => alert("구글 로그인 실패.", error));
+        .post("http://localhost:8080/api/login/google")
+        .then((response) => alert(response))
+        .catch((error) => alert("구글 로그인 실패.", error));
   };
 
   const onFailure = (res) => {
@@ -32,14 +31,14 @@ const GoogleButton = () => {
   };
 
   return (
-    <div>
-      <GoogleLogin
-        clientId={clientId}
-        buttonText="구글 아이디로 로그인"
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-      />
-    </div>
+      <div>
+        <GoogleLogin
+            clientId={clientId}
+            buttonText="구글 아이디로 로그인"
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+        />
+      </div>
   );
 };
 

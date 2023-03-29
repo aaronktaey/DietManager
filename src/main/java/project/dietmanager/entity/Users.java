@@ -27,13 +27,17 @@ public class Users implements UserDetails {
 
     private String password;
 
+    private String email;
+
     @ElementCollection(fetch = FetchType.EAGER)
     private List<String> roles = new ArrayList<>();
 
     @Builder
-    public Users(String loginId, String password, String ... role) {
+    public Users(String loginId, String password, String email, String ... role) {
         this.loginId = loginId;
         this.password = password;
+        this.email = email;
+
         for (String s : role) {
             roles.add(s);
         }
@@ -74,5 +78,12 @@ public class Users implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public Users update(String loginId, String email) {
+        this.loginId = loginId;
+        this.email = email;
+
+        return this;
     }
 }

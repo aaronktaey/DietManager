@@ -20,6 +20,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import project.dietmanager.jwt.JwtAuthenticationFilter;
 import project.dietmanager.jwt.JwtTokenProvider;
+import project.dietmanager.oauth2.CustomOAuth2UserService;
 
 import java.io.IOException;
 
@@ -31,6 +32,7 @@ public class WebSecurityConfig {
     private final JwtTokenProvider jwtTokenProvider;
     private String[] userPath = new String[]{};
     private String[] whiteList = new String[]{"/api/login", "/static/js/**", "/static/css/**", "/index.html", "/", "/api/signup"};
+    private final CustomOAuth2UserService customOAuth2UserService;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -46,6 +48,9 @@ public class WebSecurityConfig {
                 .requestMatchers(userPath).hasRole("ROLE_USER")
                 .anyRequest().authenticated()
                 .and()
+                    .logout()
+                    .logoutSuccessUrl("/")
+                .and()
                 .exceptionHandling().accessDeniedHandler(new AccessDeniedHandler() {
                     @Override
                     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
@@ -59,7 +64,10 @@ public class WebSecurityConfig {
                     }
                 })
                 .and()
-                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class)
+                .oauth2Login()
+                .userInfoEndpoint()
+                .userService(customOAuth2UserService);
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         return http.build();
