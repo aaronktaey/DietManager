@@ -79,7 +79,7 @@ function Login() {
           onChange={handlepassword}
         />
       </div>
-        <a href="/oauth2/authorization/google" className="btn btn-success active" role="button">Google Login</a>
+        <a href="/oauth2/authorization/google" className="btn btn-success active" role="button">구글 로그인</a>
       <div className="login-item">
         <button type="button" onClick={handleLoginBtnClick}>
           {toggle ? "로그인" : "회원가입"}
