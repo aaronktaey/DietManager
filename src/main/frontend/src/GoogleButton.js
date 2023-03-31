@@ -1,4 +1,3 @@
-import GoogleLogin from "react-google-login";
 import { useEffect, useCallback } from "react";
 import { gapi } from "gapi-script";
 import axios from "axios";
