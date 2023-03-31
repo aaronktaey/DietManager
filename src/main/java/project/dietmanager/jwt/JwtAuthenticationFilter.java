@@ -22,7 +22,7 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        System.out.println("build test!!!!!!!!!!!!!!!!!!!! ");
+        System.out.println("build test!!!!!!!!!!!!!!!!!!");
         String URI = ((HttpServletRequest) request).getRequestURI();
 
         if (!Arrays.stream(whiteList).anyMatch(a -> URI.contains(a)) && !URI.equals("/")) {
