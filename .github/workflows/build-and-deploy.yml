@@ -64,5 +64,5 @@ s3://project-bucket-yeongho/$PROJECT_NAME/$GITHUB_SHA:
         --deployment-config-name CodeDeployDefault.AllAtOnce \
         --deployment-group-name diet-manager-prod \
         --file-exists-behavior OVERWRITE \
-        --s3-location bucket=project-bucket-yeongho,bundleType=zip,key=diet-manager/$GITHUB_SHA.zip \
+        --s3-location bucket=project-bucket-yeongho,bundleType=zip,key=DietManager/$GITHUB_SHA.zip \
         --region ap-northeast-2 \
