@@ -31,12 +31,12 @@ const GoogleButton = () => {
 
   return (
       <div>
-        <GoogleLogin
-            clientId={clientId}
-            buttonText="구글 아이디로 로그인"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-        />
+        {/*<GoogleLogin*/}
+        {/*    clientId={clientId}*/}
+        {/*    buttonText="구글 아이디로 로그인"*/}
+        {/*    onSuccess={onSuccess}*/}
+        {/*    onFailure={onFailure}*/}
+        {/*/>*/}
       </div>
   );
 };
