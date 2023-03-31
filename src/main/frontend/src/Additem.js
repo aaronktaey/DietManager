@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import Calculate from "./Calculate";
+import { useState } from "react";
 
 function AddItem() {
   const [ingredient, setIngredient] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [unit, setUnit] = useState("");
+  const [setUnit] = useState("");
   
   const handleIngredientSelect = (e) => {
     setIngredient(e.target.value);

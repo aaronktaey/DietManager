@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { gapi } from "gapi-script";
 import axios from "axios";
 
@@ -17,26 +17,8 @@ const GoogleButton = () => {
     gapi.load("client:auth2", start);
   }, []);
 
-  const onSuccess = (res) => {
-    console.log(res);
-    axios
-        .post("http://localhost:8080/api/login/google")
-        .then((response) => alert(response))
-        .catch((error) => alert("구글 로그인 실패.", error));
-  };
-
-  const onFailure = (res) => {
-    alert("로그인 실패...", res.error);
-  };
-
   return (
       <div>
-        {/*<GoogleLogin*/}
-        {/*    clientId={clientId}*/}
-        {/*    buttonText="구글 아이디로 로그인"*/}
-        {/*    onSuccess={onSuccess}*/}
-        {/*    onFailure={onFailure}*/}
-        {/*/>*/}
       </div>
   );
 };
