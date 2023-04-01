@@ -9,6 +9,7 @@ CURRENT_PID=$(pgrep -f $JAR_NAME)
 
 if [ -z $CURRENT_PID ]
 then
+  echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
 else
   echo "> kill -15 $CURRENT_PID"
   kill -15 $CURRENT_PID
@@ -16,4 +17,4 @@ else
 fi
 
 DEPLOY_JAR=$DEPLOY_PATH$JAR_NAME
-nohup java -jar $DEPLOY_JAR >> /home/ec2-user/deploy.log 2>/home/ec2-user/action/deploy_err.log &
+java -jar $DEPLOY_JAR
