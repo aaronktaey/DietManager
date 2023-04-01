@@ -44,7 +44,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ${{ env.AWS_REGION }}
 
       # script files 복사
       - name: Copy script
@@ -59,6 +59,7 @@ jobs:
         run: |
           aws deploy create-deployment \
           --application-name diet-manager-project \
+          --deployment-config-name CodeDeployDefault.AllAtOnce \
           --deployment-group-name diet-manager-prod \
           --file-exists-behavior OVERWRITE \
           --s3-location bucket=project-bucket-yeongho,bundleType=zip,key=diet-manager-project/f5f6be39f7fd5e1a666fbd2ddde09afcc0c6f90b.zip \
