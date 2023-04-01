@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+const API_URL = process.env.REACT_APP_API_URL;
 function AddItem() {
   const [ingredient, setIngredient] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -15,6 +15,7 @@ function AddItem() {
     setUnit(e.target.value);
   };
   const addItem = (e) => {
+    console.log(`API_URL : ${API_URL}`);
     const home = document.querySelector("#home");
     const newItem = document.createElement("div");
     newItem.setAttribute("class", "home-item");
