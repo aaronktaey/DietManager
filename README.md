@@ -33,4 +33,4 @@ data : 구글에서 돌려받은 JSON response 그대로 보냄
 추가 기능을 구현을 위해 멤버의 나이, 몸무게, 키 필드 필요할듯함.
 
 
-배포되는지 테스트!!!!!!!dddddfqfqwffff
+배포되는지 테스트!!!!!!!dddddfqfqwffffgggggg
