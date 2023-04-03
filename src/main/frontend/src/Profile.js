@@ -2,11 +2,11 @@ import { useState } from "react";
 import "./Profile.css";
 
 const Profile = () => {
-  fetch('/data/food.csv')
-  .then(response => response.text())
-  .then(data => {
-    console.log(data);
-  });
+  fetch("/data/food.csv")
+    .then((response) => response.text())
+    .then((data) => {
+      console.log(data);
+    });
   const data = {
     // db에서 조회된 데이터
     Name: "민지",
