@@ -1,7 +1,6 @@
 import "./Login.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import GoogleButton from "./GoogleButton";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -70,20 +69,19 @@ function Login() {
           onChange={handlepassword}
         />
       </div>
-      <a
-        href="/oauth2/authorization/google"
-        className="btn btn-success active"
-        role="button"
-      >
-        구글 로그인 DNS로 접속
-      </a>
       <div className="login-item">
         <button type="button" onClick={handleLoginBtnClick}>
           로그인
         </button>
-      </div>
-      <div className="login-item">
-        <GoogleButton />
+        <div className="login-item">
+          <a
+            href="/oauth2/authorization/google"
+            className="btn btn-success active"
+            role="button"
+          >
+            구글 로그인 DNS로 접속
+          </a>
+        </div>
       </div>
     </div>
   );
