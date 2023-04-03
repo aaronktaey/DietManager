@@ -2,11 +2,12 @@ import "./Login.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import GoogleButton from "./GoogleButton";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [toggle, setToggle] = useState(true);
   const [loginId, setloginId] = useState("");
   const [password, setpassword] = useState("");
+  const navigate = useNavigate();
 
   const handleloginId = (e) => {
     setloginId(e.target.value);
@@ -18,28 +19,18 @@ function Login() {
     console.log(e.target.value);
   };
 
-  const handleToggle = (e) => {
-    setToggle(toggle ? false : true);
+  const handleNavigateToSignup = (e) => {
+    navigate("/signup");
   };
 
   const handleLoginBtnClick = (e) => {
-    if (toggle) {
-      axios
-        .post("/api/login", {
-          loginId: loginId,
-          password: password,
-        })
-        .then((response) => alert(response))
-        .catch((error) => alert("로그인 실패.", error));
-    } else {
-      axios
-        .post("/api/signup", {
-          loginId: loginId,
-          password: password,
-        })
-        .then((response) => alert(response))
-        .catch((error) => alert("회원가입 실패.", error));
-    }
+    axios
+      .post("/api/login", {
+        loginId: loginId,
+        password: password,
+      })
+      .then((response) => alert(response))
+      .catch((error) => alert("로그인 실패.", error));
   };
 
   // 페이지 렌더링 후 가장 처음 호출되는 함수
@@ -54,11 +45,11 @@ function Login() {
   return (
     <div id="login" className="login-container">
       <div className="login-item">
-        <h1>{toggle ? "로그인" : "회원가입"}</h1>
+        <h1>로그인</h1>
       </div>
       <div className="login-item">
-        <button type="button" onClick={handleToggle}>
-          {toggle ? "회원가입 하기" : "로그인 하기"}
+        <button type="button" onClick={handleNavigateToSignup}>
+          회원가입 하기
         </button>
       </div>
       <div className="login-item">
@@ -79,13 +70,21 @@ function Login() {
           onChange={handlepassword}
         />
       </div>
-        <a href="/oauth2/authorization/google" className="btn btn-success active" role="button">구글 로그인 DNS로 접속</a>
+      <a
+        href="/oauth2/authorization/google"
+        className="btn btn-success active"
+        role="button"
+      >
+        구글 로그인 DNS로 접속
+      </a>
       <div className="login-item">
         <button type="button" onClick={handleLoginBtnClick}>
-          {toggle ? "로그인" : "회원가입"}
+          로그인
         </button>
       </div>
-      <div className="login-item">{toggle ? <GoogleButton /> : false}</div>
+      <div className="login-item">
+        <GoogleButton />
+      </div>
     </div>
   );
 }
