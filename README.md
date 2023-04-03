@@ -31,8 +31,3 @@ data : 구글에서 돌려받은 JSON response 그대로 보냄
 2023.03.11
 회원가입 시 비밀번호 확인할 수 있는 필드 필요.
 추가 기능을 구현을 위해 멤버의 나이, 몸무게, 키 필드 필요할듯함.
-
-
-배포되는지 테스트!!!!!!!dddddfqfqwffffggggggffxxxxfwefewefwweffwe
-testtesttest
-ffsss
