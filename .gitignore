@@ -37,7 +37,7 @@ out/
 .vscode/
 #/node_modules/
 #package-lock.json
-src/main/resources/static/
+#src/main/resources/static/
 #src/main/frontend/package-lock.json
 #src/main/frontend/node_modules/
 #.gitignore
