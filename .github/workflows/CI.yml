@@ -24,6 +24,10 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
 
+      - name: Grant execute permission for react
+        run: chmod +x node_modules/.bin/react-scripts
+        shell: bash
+
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
         shell: bash
