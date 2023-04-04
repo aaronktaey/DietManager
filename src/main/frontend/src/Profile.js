@@ -1,12 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Profile.css";
 
 const Profile = () => {
-  fetch("/data/food.csv")
-    .then((response) => response.text())
-    .then((data) => {
-      console.log(data);
-    });
+  const id = "1"; // 사용자 id
   const data = {
     // db에서 조회된 데이터
     Name: "민지",
@@ -71,6 +67,21 @@ const Profile = () => {
     setFat(e.target.value);
   };
 
+  useEffect(() => {
+    fetch("/data/userIngredients.csv")
+      .then((response) => response.text())
+      .then((data) => {
+        data.split("\n").forEach((row) => {
+          const fields = row.split(",");
+          if (fields[0] === id) {
+            console.log(`row: ${row}`);
+            for (let i = 0; i < fields.length; i++) {
+              console.log(fields[i]);
+            }
+          }
+        });
+      });
+  }, []);
   return (
     <div className="profile-container">
       <div className="profile-item">
