@@ -15,6 +15,10 @@ const Profile = () => {
     PhotoUrl:
       "https://photo.newsen.com/news_photo/2022/08/19/202208190914415510_1.jpg",
     Email: "minji@win.co.kr",
+    Calories: "1500",
+    Protein: "120",
+    Carbohydrate: "120",
+    Fat: "50",
   };
   const [isEdit, setIsEdit] = useState(false);
   const [name, setName] = useState(data.Name);
@@ -22,6 +26,10 @@ const Profile = () => {
   const [height, setHeight] = useState(data.Height);
   const [photoUrl, setPhotoUrl] = useState(data.PhotoUrl);
   const [email, setEmail] = useState(data.Email);
+  const [calories, setCalories] = useState(data.Calories);
+  const [protein, setProtein] = useState(data.Protein);
+  const [carbohydrate, setCarbohydrate] = useState(data.Carbohydrate);
+  const [fat, setFat] = useState(data.Fat);
 
   const handleEditToggle = () => {
     setIsEdit(!isEdit);
@@ -47,6 +55,22 @@ const Profile = () => {
     setEmail(e.target.value);
   };
 
+  const handleCaloriesChange = (e) => {
+    setCalories(e.target.value);
+  };
+
+  const handleProteinChange = (e) => {
+    setProtein(e.target.value);
+  };
+
+  const handleCarbohydrateChange = (e) => {
+    setCarbohydrate(e.target.value);
+  };
+
+  const handleFatChange = (e) => {
+    setFat(e.target.value);
+  };
+
   return (
     <div className="profile-container">
       <div className="profile-item">
@@ -64,7 +88,6 @@ const Profile = () => {
             />
           </div>
           <br />
-
           <div className="profile-item">
             <label htmlFor="weight-input">Weight: </label>
             <input
@@ -107,6 +130,46 @@ const Profile = () => {
               onChange={handleEmailChange}
             />
           </div>
+          <br />
+          <div className="profile-item">
+            <label htmlFor="calories-input">일일 칼로리: </label>
+            <input
+              type="number"
+              id="calories-input"
+              value={calories}
+              onChange={handleCaloriesChange}
+            />
+          </div>
+          <br />
+          <div className="profile-item">
+            <label htmlFor="protein-input">일일 단백질: </label>
+            <input
+              type="number"
+              id="protein-input"
+              value={protein}
+              onChange={handleProteinChange}
+            />
+          </div>
+          <br />
+          <div className="profile-item">
+            <label htmlFor="carbohydrate-input">일일 탄수화물: </label>
+            <input
+              type="number"
+              id="carbohydrate-input"
+              value={carbohydrate}
+              onChange={handleCarbohydrateChange}
+            />
+          </div>
+          <br />
+          <div className="profile-item">
+            <label htmlFor="fat-input">일일 지방: </label>
+            <input
+              type="number"
+              id="fat-input"
+              value={fat}
+              onChange={handleFatChange}
+            />
+          </div>
         </>
       ) : (
         <>
@@ -126,6 +189,18 @@ const Profile = () => {
             <p>
               Email: <a href={`mailto:${email}`}>{email}</a>
             </p>
+          </div>
+          <div className="profile-item">
+            <p>일일 칼로리: {calories} kcal</p>
+          </div>
+          <div className="profile-item">
+            <p>일일 단백질: {protein} g</p>
+          </div>
+          <div className="profile-item">
+            <p>일일 탄수화물: {carbohydrate} g</p>
+          </div>
+          <div className="profile-item">
+            <p>일일 지방: {fat} g</p>
           </div>
         </>
       )}
