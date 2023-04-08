@@ -40,7 +40,7 @@ function AddItem() {
       .then((response) => response.text())
       .then((data) => {
         data.split("\n").forEach((row) => {
-          const fields = row.split(",");
+          // const fields = row.split(",");
           console.log(`row: ${row}`);
         });
       });
