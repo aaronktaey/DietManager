@@ -3,30 +3,38 @@ package project.dietmanager.controller;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import project.dietmanager.dto.LoginDto;
+import project.dietmanager.dto.UserDto;
 import project.dietmanager.entity.Users;
 import project.dietmanager.exception.NoSuchUserException;
+import project.dietmanager.exception.PasswordMismatchException;
 import project.dietmanager.jwt.JwtTokenProvider;
 import project.dietmanager.repository.UserRepository;
 import project.dietmanager.service.LoginService;
 
+import javax.naming.AuthenticationException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class LoginController {
     private final LoginService loginService;
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
-    @ResponseBody
     @PostMapping("/api/login")
-    private String login(@RequestBody LoginDto dto, HttpServletResponse response) {
+    public ResponseEntity<UserDto> login(@RequestBody LoginDto dto, HttpServletResponse response) {
         boolean loginYn = loginService.login(dto);
         Users users = userRepository.findByLoginId(dto.getLoginId()).orElseThrow(() -> new NoSuchUserException("등록된 회원이 아닙니다."));
 
@@ -38,9 +46,11 @@ public class LoginController {
             cookie.setPath("/");
 
             response.addCookie(cookie);
-        }
 
-        return "로그인에 성공하였습니다";
+            return new ResponseEntity<>(UserDto.builder().loginId(users.getLoginId()).build(), HttpStatus.OK);
+        } else {
+            throw new PasswordMismatchException("로그인 실패");
+        }
     }
 
 }

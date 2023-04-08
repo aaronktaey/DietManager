@@ -7,6 +7,9 @@ import lombok.*;
 
 @ToString
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDto {
     @NotEmpty
     @Size(min = 3, max = 15)

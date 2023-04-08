@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import project.dietmanager.dto.LoginDto;
 import project.dietmanager.entity.Users;
+import project.dietmanager.exception.PasswordMismatchException;
 import project.dietmanager.repository.UserRepository;
 
 import java.util.Optional;
@@ -23,7 +24,7 @@ public class LoginService {
         }
 
         if (!passwordEncoder.matches(dto.getPassword(), findUser.get().getPassword())) {
-            throw new IllegalStateException("로그인에 실패하였습니다.");
+            throw new PasswordMismatchException("비밀번호가 일치하지 않습니다.");
         }
 
         return true;

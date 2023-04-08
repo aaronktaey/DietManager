@@ -28,7 +28,7 @@ function Login() {
         loginId: loginId,
         password: password,
       })
-      .then((response) => alert(response))
+      .then((response) => console.log(response))
       .catch((error) => alert("로그인 실패.", error));
   };
 

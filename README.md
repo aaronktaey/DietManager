@@ -34,3 +34,4 @@ data : 구글에서 돌려받은 JSON response 그대로 보냄
 
 깃에 푸시할때, 배포 됐는지 확인 !
 aws -> codedeploy -> 배포 탭에 상태 확인할것.
+로그인 시 response에 loginId 넘겨줌 -> loginId 있으면 프로필 화면으로 리다이렉트.
