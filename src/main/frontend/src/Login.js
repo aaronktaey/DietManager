@@ -79,7 +79,7 @@ function Login() {
             className="btn btn-success active"
             role="button"
           >
-            구글 로그인 DNS로 접속
+            구글 로그인
           </a>
         </div>
       </div>

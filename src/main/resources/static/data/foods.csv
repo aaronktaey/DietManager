@@ -1,4 +1,4 @@
-id,food_name,food_carb,food_protein,food_fat,food_carlories
+id,name,carb,protein,fat,carlories
 1,"닭가슴살",0,31,3,165
 2,"달걀",0,12,9,155
 3,"쌀밥",28,2,0,136
