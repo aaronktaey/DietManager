@@ -1,9 +1,3 @@
-import { useState, useEffect } from "react";
-function AddItem() {
-  const [ingredient, setIngredient] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [unit, setUnit] = useState("");
-
   const handleIngredientSelect = (e) => {
     setIngredient(e.target.value);
   };
@@ -45,15 +39,3 @@ function AddItem() {
         });
       });
   }, []);
-  return (
-    <div id="home" className="home-container">
-      <div className="home-item">
-        <button onClick={addItem}>추가</button>
-        <button onClick={calculate}>계산</button>
-      </div>
-      <div className="home-item"></div>
-    </div>
-  );
-}
-
-export default AddItem;
