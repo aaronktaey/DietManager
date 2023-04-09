@@ -1,15 +1,15 @@
   export function handleIngredientSelect(setIngredient){
-    return(e)=>{
+      return(e)=>{
       setIngredient(e.target.value);
     }
   };
   export function handleInputQuantity(setQuantity){
-    return(e)=>{
+      return(e)=>{
       setQuantity(e.target.value);
     }
   };
   export function handleUnitSelect(setUnit){
-    return(e)=>{
+      return(e)=>{
       setUnit(e.target.value);
     }
   };
